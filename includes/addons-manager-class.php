@@ -233,6 +233,13 @@ class Addons_Manager {
                 'tags'   => 'free',
                 'is_pro' => false
             ],
+            'facebook-feed'  => [
+                'title'  => __( 'Facebook Feed', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Facebook_Feed',
+                'demo_link' => 'https://exclusiveaddons.com/facebook-feed/',
+                'tags'   => 'free',
+                'is_pro' => false
+            ], 
             'filterable-gallery'  => [
                 'title'  => __( 'Filterable Gallery', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Filterable_Gallery',
@@ -449,7 +456,7 @@ class Addons_Manager {
                 'demo_link' => 'https://exclusiveaddons.com/counter/',
                 'tags'   => 'pro',
                 'is_pro' => true
-            ], 
+            ],
             'gravity-form'  => [
                 'title'  => __( 'Gravity Form', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Gravity_Form',
