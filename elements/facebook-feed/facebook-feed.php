@@ -106,15 +106,23 @@ class Facebook_Feed extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'remove_cash',
-			[
-				'label' => __('Remove Cache', 'exclusive-addons-elementor'),
-				'type' => Controls_Manager::SWITCHER,
-				'return_value' => 'yes',
-				'default' => 'no',
-				'separator' => 'after',
-			]
+		$this->add_responsive_control(
+            'exad_facebook_feed_column',
+            [
+				'label'   => __( 'Columns', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'desktop_default' => '3',
+				'tablet_default' => '2',
+				'mobile_default' => '1',
+				'options' => [
+					'1' => esc_html__( '1', 'exclusive-addons-elementor' ),
+					'2' => esc_html__( '2', 'exclusive-addons-elementor' ),
+					'3' => esc_html__( '3', 'exclusive-addons-elementor' ),
+					'4' => esc_html__( '4', 'exclusive-addons-elementor' ),
+					'5' => esc_html__( '5', 'exclusive-addons-elementor' ),
+					'6' => esc_html__( '6', 'exclusive-addons-elementor' )
+				]
+            ]
 		);
 
 		$this->add_responsive_control(
@@ -137,6 +145,17 @@ class Facebook_Feed extends Widget_Base {
 					'(tablet){{WRAPPER}} .ha-facebook-items' => 'grid-template-columns: repeat({{columns_tablet.VALUE || 0}}, 1fr);',
 					'(mobile){{WRAPPER}} .ha-facebook-items' => 'grid-template-columns: repeat({{columns_mobile.VALUE || 0}}, 1fr);'
 				]
+			]
+		);
+
+		$this->add_control(
+			'remove_cash',
+			[
+				'label' => __('Remove Cache', 'exclusive-addons-elementor'),
+				'type' => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default' => 'no',
+				'separator' => 'after',
 			]
 		);
 
@@ -1273,10 +1292,9 @@ class Facebook_Feed extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		?>
-		<div class="exad-facebook-feed-container">
-			<?php $this->facebook_feed_render($this->get_id(), $settings); ?>
-		</div>
+		
+		$this->facebook_feed_render($this->get_id(), $settings); ?>
+	
 		<?php
 	}
 
@@ -1286,6 +1304,13 @@ class Facebook_Feed extends Widget_Base {
 		if ( empty( $page_id ) || empty( $access_token ) ) {
 			return;
 		}
+
+		$this->add_render_attribute(
+			'exad_facebook_feed_wrapper',
+			[
+				'class' => "exad-row-wrapper exad-col-{$settings['exad_facebook_feed_column']}"
+			]
+		);
 
 		$ha_facebook_feed_cash = '_' . $id . '_facebook_cash';
 		$transient_key = $page_id . $ha_facebook_feed_cash;
@@ -1366,10 +1391,10 @@ class Facebook_Feed extends Widget_Base {
 
 		?>
 
-		<div class="ha-facebook-items">
+		<div <?php echo $this->get_render_attribute_string( 'exad_facebook_feed_wrapper' ); ?>>
 			<?php foreach ( $items as $item ) :
 				$page_url = "https://facebook.com/{$item['from']['id']}";
-				$avatar_url = "https://graph.facebook.com/v4.0/{{$item['from']['id']}/picture";
+				$avatar_url = "https://graph.facebook.com/{{$item['from']['id']}/picture";
 
 				$description = explode( ' ', $item['message'] );
 				if ( !empty( $settings['description_word_count'] ) && count( $description ) > $settings['description_word_count'] ) {
@@ -1379,7 +1404,7 @@ class Facebook_Feed extends Widget_Base {
 					$description = $item['message'];
 				}
 				?>
-				<div class="ha-facebook-item">
+				<div class="exad-col">
 
 					<?php if ( $settings['show_feature_image'] == 'yes' && !empty( $item['full_picture'] ) ) : ?>
 						<div class="ha-facebook-feed-feature-image">
