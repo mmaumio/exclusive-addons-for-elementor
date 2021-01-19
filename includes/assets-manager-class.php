@@ -122,6 +122,7 @@ class Assets_Manager {
 
         wp_localize_script( 'exad-main-script', 'exad_ajax_object', array(
             'ajax_url' => admin_url( 'admin-ajax.php' ),
+            'nonce' => wp_create_nonce( 'exclusive_addons_nonce' ),
         ));
     }
 

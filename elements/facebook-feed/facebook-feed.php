@@ -125,29 +125,6 @@ class Facebook_Feed extends Widget_Base {
             ]
 		);
 
-		$this->add_responsive_control(
-			'columns',
-			[
-				'label' => __('Column Number', 'exclusive-addons-elementor'),
-				'type' => Controls_Manager::SELECT,
-				'label_block' => false,
-				'desktop_default' => '3',
-				'tablet_default' => '2',
-				'mobile_default' => '1',
-				'options' => [
-					'1' => __( '1 Column', 'exclusive-addons-elementor' ),
-					'2' => __( '2 Column', 'exclusive-addons-elementor' ),
-					'3' => __( '3 Column', 'exclusive-addons-elementor' ),
-					'4' => __( '4 Column', 'exclusive-addons-elementor' ),
-				],
-				'selectors' => [
-					'(desktop){{WRAPPER}} .ha-facebook-items' => 'grid-template-columns: repeat({{VALUE}}, 1fr);',
-					'(tablet){{WRAPPER}} .ha-facebook-items' => 'grid-template-columns: repeat({{columns_tablet.VALUE || 0}}, 1fr);',
-					'(mobile){{WRAPPER}} .ha-facebook-items' => 'grid-template-columns: repeat({{columns_mobile.VALUE || 0}}, 1fr);'
-				]
-			]
-		);
-
 		$this->add_control(
 			'remove_cash',
 			[
@@ -384,7 +361,7 @@ class Facebook_Feed extends Widget_Base {
 				'default' => 'center',
 				'toggle' => false,
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-load-more-wrapper' => 'text-align: {{VALUE}};'
+					'{{WRAPPER}} .exad-facebook-load-more-wrapper' => 'text-align: {{VALUE}};'
 				]
 			]
 		);
@@ -1171,7 +1148,7 @@ class Facebook_Feed extends Widget_Base {
 				'condition' => [
 					'load_more' => 'yes'
 				],
-				'selector' => '{{WRAPPER}} .ha-facebook-load-more',
+				'selector' => '{{WRAPPER}} .exad-facebook-load-more',
 			]
 		);
 
@@ -1185,7 +1162,7 @@ class Facebook_Feed extends Widget_Base {
 					'load_more' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-load-more' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-load-more' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -1197,7 +1174,7 @@ class Facebook_Feed extends Widget_Base {
 				'condition' => [
 					'load_more' => 'yes'
 				],
-				'selector' => '{{WRAPPER}} .ha-facebook-load-more'
+				'selector' => '{{WRAPPER}} .exad-facebook-load-more'
 			]
 		);
 
@@ -1222,7 +1199,7 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-load-more' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .exad-facebook-load-more' => 'background-color: {{VALUE}};'
 				],
 			]
 		);
@@ -1233,7 +1210,7 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-load-more' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-facebook-load-more' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -1253,7 +1230,7 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __('Background Color', 'exclusive-addons-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-load-more:hover' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .exad-facebook-load-more:hover' => 'background-color: {{VALUE}};'
 				],
 			]
 		);
@@ -1264,7 +1241,7 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __('Color', 'exclusive-addons-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-load-more:hover' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-facebook-load-more:hover' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -1278,7 +1255,7 @@ class Facebook_Feed extends Widget_Base {
 					'button_border_border!' => '',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-load-more:hover' => 'border-color: {{VALUE}};'
+					'{{WRAPPER}} .exad-facebook-load-more:hover' => 'border-color: {{VALUE}};'
 				],
 			]
 		);
@@ -1307,8 +1284,9 @@ class Facebook_Feed extends Widget_Base {
 
 		$this->add_render_attribute(
 			'exad_facebook_feed_wrapper',
-			[
-				'class' => "exad-row-wrapper exad-col-{$settings['exad_facebook_feed_column']}"
+			[	
+				'id' => "exad-facebook-feed-wrapper",
+				'class' => "exad-facebook-feed-wrapper exad-row-wrapper exad-col-{$settings['exad_facebook_feed_column']}"
 			]
 		);
 
@@ -1404,7 +1382,7 @@ class Facebook_Feed extends Widget_Base {
 					$description = $item['message'];
 				}
 				?>
-				<div class="exad-col">
+				<div class="exad-facebook-feed-item exad-col">
 
 					<?php if ( $settings['show_feature_image'] == 'yes' && !empty( $item['full_picture'] ) ) : ?>
 						<div class="ha-facebook-feed-feature-image">
@@ -1494,8 +1472,8 @@ class Facebook_Feed extends Widget_Base {
 		</div>
 
 		<?php if ( $settings['load_more'] == 'yes' ) : ?>
-			<div class="ha-facebook-load-more-wrapper">
-				<button class="ha-facebook-load-more" data-settings="<?php echo esc_attr( $query_settings ); ?>" data-total="<?php echo esc_attr( count( $facebook_feed_data['data'] ) ); ?>">
+			<div class="exad-facebook-load-more-wrapper">
+				<button class="exad-facebook-load-more" data-settings="<?php echo esc_attr( $query_settings ); ?>" data-total="<?php echo esc_attr( count( $facebook_feed_data['data'] ) ); ?>">
 					<?php echo esc_html( $settings['load_more_text'] ); ?>
 				</button>
 			</div>
