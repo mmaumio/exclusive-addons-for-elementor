@@ -183,42 +183,42 @@ final class Base {
                 <div class="exad-facebook-feed-item exad-col">
 
                     <?php if ( $settings['show_feature_image'] == 'yes' && !empty( $item['full_picture'] ) ) : ?>
-                        <div class="ha-facebook-feed-feature-image">
+                        <div class="exad-facebook-feed-feature-image">
                             <a href="<?php echo esc_url( $item['permalink_url'] ); ?>" target="_blank">
                                 <img src="<?php echo esc_url( $item['full_picture'] ); ?>" alt="<?php esc_url( $item['from']['name'] ); ?>">
                             </a>
                         </div>
                     <?php endif ?>
 
-                    <div class="ha-facebook-inner-wrapper">
+                    <div class="exad-facebook-inner-wrapper">
 
                         <?php if ( $settings['show_facebook_logo'] == 'yes' ) : ?>
-                            <div class="ha-facebook-feed-icon">
+                            <div class="exad-facebook-feed-icon">
                                 <i class="fa fa-facebook-square"></i>
                             </div>
                         <?php endif; ?>
 
-                        <div class="ha-facebook-author">
+                        <div class="exad-facebook-author">
                             <?php if ( $settings['show_user_image'] == 'yes' ) : ?>
                                 <a href="<?php echo esc_url( $page_url ); ?>">
                                     <img
                                         src="<?php echo esc_url( $avatar_url ); ?>"
                                         alt="<?php echo esc_attr( $item['from']['name'] ); ?>"
-                                        class="ha-facebook-avatar"
+                                        class="exad-facebook-avatar"
                                     >
                                 </a>
                             <?php endif; ?>
 
-                            <div class="ha-facebook-user">
+                            <div class="exad-facebook-user">
                                 <?php if ( $settings['show_name'] == 'yes' ) : ?>
-                                    <a href="<?php echo esc_url( $page_url ); ?>" class="ha-facebook-author-name">
+                                    <a href="<?php echo esc_url( $page_url ); ?>" class="exad-facebook-author-name">
                                         <?php echo esc_html( $item['from']['name'] ); ?>
                                     </a>
                                 <?php endif; ?>
                             </div>
                         </div>
 
-                        <div class="ha-facebook-content">
+                        <div class="exad-facebook-content">
                             <p>
                                 <?php
                                 echo esc_html( $description );
@@ -231,7 +231,7 @@ final class Base {
                             </p>
 
                             <?php if ( $settings['show_date'] == 'yes' ) : ?>
-                                <div class="ha-facebook-date">
+                                <div class="exad-facebook-date">
                                     <?php echo esc_html( date("M d Y", strtotime( $item['created_time'] ) ) ); ?>
                                 </div>
                             <?php endif; ?>
@@ -240,19 +240,19 @@ final class Base {
                     </div>
 
                     <?php if ( $settings['show_likes'] == 'yes' || $settings['show_comments'] == 'yes' ) : ?>
-                        <div class="ha-facebook-footer-wrapper">
-                            <div class="ha-facebook-footer">
+                        <div class="exad-facebook-footer-wrapper">
+                            <div class="exad-facebook-footer">
 
-                                <div class="ha-facebook-meta">
+                                <div class="exad-facebook-meta">
                                     <?php if ( $settings['show_likes'] == 'yes' ) : ?>
-                                        <div class="ha-facebook-likes">
+                                        <div class="exad-facebook-likes">
                                             <?php echo esc_html( $item['reactions']['summary']['total_count'] ); ?>
                                             <i class="fa fa-thumbs-up"></i>
                                         </div>
                                     <?php endif; ?>
 
                                     <?php if ( $settings['show_comments'] == 'yes' ) : ?>
-                                        <div class="ha-facebook-comments">
+                                        <div class="exad-facebook-comments">
                                             <?php echo esc_html( $item['comments']['summary']['total_count'] ); ?>
                                             <i class="fa fa-comment"></i>
                                         </div>

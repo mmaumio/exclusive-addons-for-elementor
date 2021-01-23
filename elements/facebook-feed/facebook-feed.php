@@ -299,7 +299,7 @@ class Facebook_Feed extends Widget_Base {
 				],
 				'default' => 'left',
 				'toggle' => false,
-				'prefix_class' => 'ha-facebook-',
+				'prefix_class' => 'exad-facebook-',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-widget-container' => 'text-align: {{VALUE}};'
 				]
@@ -326,7 +326,7 @@ class Facebook_Feed extends Widget_Base {
 						'icon' => 'fa fa-align-right',
 					],
 				],
-				'prefix_class' => 'ha-facebook-user-',
+				'prefix_class' => 'exad-facebook-user-',
 				'selectors_dictionary' => [
 					'left' => 'justify-content: flex-start',
 					'center' => 'justify-content: space-around',
@@ -334,7 +334,7 @@ class Facebook_Feed extends Widget_Base {
 				],
 				'toggle' => true,
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-meta' => '{{VALUE}};'
+					'{{WRAPPER}} .exad-facebook-meta' => '{{VALUE}};'
 				]
 			]
 		);
@@ -383,13 +383,13 @@ class Facebook_Feed extends Widget_Base {
 				],
 				'default' => 'top',
 				'toggle' => false,
-				'prefix_class' => 'ha-facebook-user-',
+				'prefix_class' => 'exad-facebook-user-',
 				'selectors_dictionary' => [
 					'top' => 'flex-direction: column',
 					'bottom' => 'flex-direction: column-reverse',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-item' => '{{VALUE}};'
+					'{{WRAPPER}} .exad-facebook-item' => '{{VALUE}};'
 				]
 			]
 		);
@@ -414,7 +414,7 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Space between Posts', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-items' => 'grid-gap: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-facebook-items' => 'grid-gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -426,7 +426,7 @@ class Facebook_Feed extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-inner-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-facebook-inner-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -435,7 +435,7 @@ class Facebook_Feed extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'items_border',
-				'selector' => '{{WRAPPER}} .ha-facebook-item',
+				'selector' => '{{WRAPPER}} .exad-facebook-item',
 			]
 		);
 
@@ -446,7 +446,7 @@ class Facebook_Feed extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -455,7 +455,7 @@ class Facebook_Feed extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'items_box_shadow',
-				'selector' => '{{WRAPPER}} .ha-facebook-item'
+				'selector' => '{{WRAPPER}} .exad-facebook-item'
 			]
 		);
 
@@ -464,7 +464,7 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'name' => 'item_background',
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .ha-facebook-item',
+				'selector' => '{{WRAPPER}} .exad-facebook-item',
 			]
 		);
 
@@ -477,7 +477,7 @@ class Facebook_Feed extends Widget_Base {
 					'item_background_background' => 'classic'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-item:before' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-item:before' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -492,7 +492,7 @@ class Facebook_Feed extends Widget_Base {
 				'condition' => [
 					'item_background_background' => 'classic'
 				],
-				'prefix_class' => 'ha-facebook-glassy-',
+				'prefix_class' => 'exad-facebook-glassy-',
 				'style_transfer' => true,
 			]
 		);
@@ -535,7 +535,7 @@ class Facebook_Feed extends Widget_Base {
 					'show_feature_image' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-feed-feature-image img' => 'width: {{SIZE}}{{UNIT}}'
+					'{{WRAPPER}} .exad-facebook-feed-feature-image img' => 'width: {{SIZE}}{{UNIT}}'
 				],
 			]
 		);
@@ -556,7 +556,7 @@ class Facebook_Feed extends Widget_Base {
 					'show_feature_image' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-feed-feature-image img' => 'height: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-feed-feature-image img' => 'height: {{SIZE}}{{UNIT}};'
 				],
 			]
 		);
@@ -571,7 +571,7 @@ class Facebook_Feed extends Widget_Base {
 					'show_feature_image' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-feed-feature-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-feed-feature-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -586,7 +586,7 @@ class Facebook_Feed extends Widget_Base {
 					'show_feature_image' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-feed-feature-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-feed-feature-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -598,7 +598,7 @@ class Facebook_Feed extends Widget_Base {
 				'condition' => [
 					'show_feature_image' => 'yes'
 				],
-				'selector' => '{{WRAPPER}} .ha-facebook-feed-feature-image img',
+				'selector' => '{{WRAPPER}} .exad-facebook-feed-feature-image img',
 			]
 		);
 
@@ -609,7 +609,7 @@ class Facebook_Feed extends Widget_Base {
 				'condition' => [
 					'show_feature_image' => 'yes'
 				],
-				'selector' => '{{WRAPPER}} .ha-facebook-feed-feature-image img'
+				'selector' => '{{WRAPPER}} .exad-facebook-feed-feature-image img'
 			]
 		);
 
@@ -630,7 +630,7 @@ class Facebook_Feed extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-author' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-author' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -665,7 +665,7 @@ class Facebook_Feed extends Widget_Base {
 					'show_facebook_logo' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-feed-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-facebook-feed-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -679,7 +679,7 @@ class Facebook_Feed extends Widget_Base {
 					'show_facebook_logo' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-feed-icon i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-feed-icon i' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -715,7 +715,7 @@ class Facebook_Feed extends Widget_Base {
 					'show_user_image' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-avatar' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-avatar' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};'
 				],
 			]
 		);
@@ -730,9 +730,9 @@ class Facebook_Feed extends Widget_Base {
 					'show_user_image' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}}.ha-facebook-left .ha-facebook-avatar' => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.ha-facebook-center .ha-facebook-avatar' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.ha-facebook-right .ha-facebook-avatar' => 'margin-left: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}}.exad-facebook-left .exad-facebook-avatar' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.exad-facebook-center .exad-facebook-avatar' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.exad-facebook-right .exad-facebook-avatar' => 'margin-left: {{SIZE}}{{UNIT}};'
 				],
 			]
 		);
@@ -741,7 +741,7 @@ class Facebook_Feed extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'profile_image_border',
-				'selector' => '{{WRAPPER}} .ha-facebook-avatar',
+				'selector' => '{{WRAPPER}} .exad-facebook-avatar',
 				'condition' => [
 					'show_user_image' => 'yes'
 				],
@@ -755,7 +755,7 @@ class Facebook_Feed extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-avatar' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-facebook-avatar' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -764,7 +764,7 @@ class Facebook_Feed extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'profile_image_box_shadow',
-				'selector' => '{{WRAPPER}} .ha-facebook-avatar',
+				'selector' => '{{WRAPPER}} .exad-facebook-avatar',
 				'condition' => [
 					'show_user_image' => 'yes'
 				],
@@ -797,7 +797,7 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'name' => 'name_typography',
 				'label' => __( 'Name Typography', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .ha-facebook-author-name',
+				'selector' => '{{WRAPPER}} .exad-facebook-author-name',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'condition' => [
 					'show_name' => 'yes'
@@ -827,7 +827,7 @@ class Facebook_Feed extends Widget_Base {
 					'show_name' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-author-name' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-author-name' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -849,7 +849,7 @@ class Facebook_Feed extends Widget_Base {
 					'show_name' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-author-name:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-author-name:hover' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -883,7 +883,7 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'name' => 'date_typography',
 				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .ha-facebook-date',
+				'selector' => '{{WRAPPER}} .exad-facebook-date',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'condition' => [
 					'show_date' => 'yes'
@@ -900,7 +900,7 @@ class Facebook_Feed extends Widget_Base {
 					'show_date' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-date' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-date' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -922,7 +922,7 @@ class Facebook_Feed extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -943,7 +943,7 @@ class Facebook_Feed extends Widget_Base {
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-content p' => 'margin-bottom: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-content p' => 'margin-bottom: {{SIZE}}{{UNIT}};'
 				],
 			]
 		);
@@ -953,7 +953,7 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'name' => 'description_typography',
 				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .ha-facebook-content p',
+				'selector' => '{{WRAPPER}} .exad-facebook-content p',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
@@ -964,7 +964,7 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-content p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-content p' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -995,7 +995,7 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'name' => 'read_more_typography',
 				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .ha-facebook-content p a',
+				'selector' => '{{WRAPPER}} .exad-facebook-content p a',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'condition' => [
 					'read_more' => 'yes'
@@ -1012,7 +1012,7 @@ class Facebook_Feed extends Widget_Base {
 					'read_more' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-content p a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-content p a' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1026,7 +1026,7 @@ class Facebook_Feed extends Widget_Base {
 					'read_more' => 'yes'
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-content p a:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-content p a:hover' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1048,7 +1048,7 @@ class Facebook_Feed extends Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .ha-facebook-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-facebook-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -1057,7 +1057,7 @@ class Facebook_Feed extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'footer_meta_border',
-                'selector' => '{{WRAPPER}} .ha-facebook-meta',
+                'selector' => '{{WRAPPER}} .exad-facebook-meta',
             ]
         );
 
@@ -1091,7 +1091,7 @@ class Facebook_Feed extends Widget_Base {
 					'show_likes' => 'yes',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-likes' => 'margin-right: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-likes' => 'margin-right: {{SIZE}}{{UNIT}};'
 				],
 			]
 		);
@@ -1102,8 +1102,8 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-likes' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .ha-facebook-comments' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-likes' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-comments' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1114,8 +1114,8 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .ha-facebook-likes i' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .ha-facebook-comments i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-likes i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-comments i' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1313,7 +1313,7 @@ class Facebook_Feed extends Widget_Base {
 
 		if ( !empty( $messages ) ) {
 			foreach ($messages as $key => $message) {
-				printf('<div class="ha-facebook-error-message">%1$s</div>', esc_html( $message ) );
+				printf('<div class="exad-facebook-error-message">%1$s</div>', esc_html( $message ) );
 			}
 			return;
 		}
@@ -1385,48 +1385,48 @@ class Facebook_Feed extends Widget_Base {
 				<div class="exad-facebook-feed-item exad-col">
 
 					<?php if ( $settings['show_feature_image'] == 'yes' && !empty( $item['full_picture'] ) ) : ?>
-						<div class="ha-facebook-feed-feature-image">
+						<div class="exad-facebook-feed-feature-image">
 							<a href="<?php echo esc_url( $item['permalink_url'] ); ?>" target="_blank">
 								<img src="<?php echo esc_url( $item['full_picture'] ); ?>" alt="<?php esc_url( $item['from']['name'] ); ?>">
 							</a>
 						</div>
 					<?php endif ?>
 
-					<div class="ha-facebook-inner-wrapper">
+					<div class="exad-facebook-inner-wrapper">
 
 						<?php if ( $settings['show_facebook_logo'] == 'yes' ) : ?>
-							<div class="ha-facebook-feed-icon">
+							<div class="exad-facebook-feed-icon">
 								<i class="fa fa-facebook-square"></i>
 							</div>
 						<?php endif; ?>
 
-						<div class="ha-facebook-author">
+						<div class="exad-facebook-author">
 							<?php if ( $settings['show_user_image'] == 'yes' ) : ?>
 								<a href="<?php echo esc_url( $page_url ); ?>">
 									<img
 										src="<?php echo esc_url( $avatar_url ); ?>"
 										alt="<?php echo esc_attr( $item['from']['name'] ); ?>"
-										class="ha-facebook-avatar"
+										class="exad-facebook-avatar"
 									>
 								</a>
 							<?php endif; ?>
 
-							<div class="ha-facebook-user">
+							<div class="exad-facebook-user">
 								<?php if ( $settings['show_name'] == 'yes' ) : ?>
-									<a href="<?php echo esc_url( $page_url ); ?>" class="ha-facebook-author-name">
+									<a href="<?php echo esc_url( $page_url ); ?>" class="exad-facebook-author-name">
 										<?php echo esc_html( $item['from']['name'] ); ?>
 									</a>
 								<?php endif; ?>
 
 								<?php if ( $settings['show_date'] == 'yes' ) : ?>
-									<div class="ha-facebook-date">
+									<div class="exad-facebook-date">
 										<?php echo esc_html( date("M d Y", strtotime( $item['created_time'] ) ) ); ?>
 									</div>
 								<?php endif; ?>
 							</div>
 						</div>
 
-						<div class="ha-facebook-content">
+						<div class="exad-facebook-content">
 							<p>
 								<?php
 								echo esc_html( $description );
@@ -1442,12 +1442,12 @@ class Facebook_Feed extends Widget_Base {
 					</div>
 
 					<?php if ( $settings['show_likes'] == 'yes' || $settings['show_comments'] == 'yes' ) : ?>
-						<div class="ha-facebook-footer-wrapper">
-							<div class="ha-facebook-footer">
+						<div class="exad-facebook-footer-wrapper">
+							<div class="exad-facebook-footer">
 
-								<div class="ha-facebook-meta">
+								<div class="exad-facebook-meta">
 									<?php if ( $settings['show_likes'] == 'yes' ) : ?>
-										<div class="ha-facebook-likes">
+										<div class="exad-facebook-likes">
 											<?php echo esc_html( $item['reactions']['summary']['total_count'] ); ?>
 											<i class="fa fa-thumbs-up"></i>
 											<?php _e( 'Like', 'exclusive-addons-elementor' ); ?>
@@ -1455,7 +1455,7 @@ class Facebook_Feed extends Widget_Base {
 									<?php endif; ?>
 
 									<?php if ( $settings['show_comments'] == 'yes' ) : ?>
-										<div class="ha-facebook-comments">
+										<div class="exad-facebook-comments">
 											<?php echo esc_html( $item['comments']['summary']['total_count'] ); ?>
 											<i class="fa fa-comment"></i>
 											<?php _e( 'comment', 'exclusive-addons-elementor' ); ?>
