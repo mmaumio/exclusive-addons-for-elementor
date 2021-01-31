@@ -1,0 +1,25 @@
+
+/* Facebook Feed Css Starts */
+
+.exad-row-wrapper .exad-facebook-meta {
+    display: flex;
+    align-items: center;
+}
+
+.exad-row-wrapper .exad-facebook-author {
+    display: flex;
+    align-items: center;
+}
+
+.exad-facebook-user {
+    margin-left: 15px;
+}
+
+.exad-facebook-author .exad-facebook-avatar {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.exad-row-wrapper .exad-facebook-likes {
+    margin-right: 15px;
+}

@@ -126,7 +126,7 @@ final class Base {
             $loaded_item = $_POST['loaded_item'];
 
             $ha_facebook_feed_cash = '_' . $settings['widget_id'] . '_facebook_cash';
-            $transient_key = $settings['page_id'] . $ha_facebook_feed_cash;
+            $transient_key = $settings['exad_facebook_page_id'] . $ha_facebook_feed_cash;
             $facebook_feed_data = get_transient($transient_key);
 
             if ( false === $facebook_feed_data ) {
@@ -140,7 +140,7 @@ final class Base {
                 delete_transient( $transient_key );
             }
 
-            switch ($settings['sort_by']) {
+            switch ($settings['exad_facebook_sort_by']) {
                 case 'old-posts':
                     usort($facebook_feed_data['data'], function ($a,$b) {
                         if ( strtotime($a['created_time']) == strtotime($b['created_time']) ) return 0;
@@ -191,12 +191,6 @@ final class Base {
                     <?php endif ?>
 
                     <div class="exad-facebook-inner-wrapper">
-
-                        <?php if ( $settings['show_facebook_logo'] == 'yes' ) : ?>
-                            <div class="exad-facebook-feed-icon">
-                                <i class="fa fa-facebook-square"></i>
-                            </div>
-                        <?php endif; ?>
 
                         <div class="exad-facebook-author">
                             <?php if ( $settings['show_user_image'] == 'yes' ) : ?>

@@ -35,11 +35,11 @@ class Facebook_Feed extends Widget_Base {
 
 
 	/**
-	 * Register content related controls
+	 * Register controls
 	 */
 	protected function _register_controls() {
 		$this->start_controls_section(
-			'_section_facebook_feed',
+			'exad_facebook_feed_wrapper',
 			[
 				'label' => __( 'Facebook Feed', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
@@ -47,18 +47,18 @@ class Facebook_Feed extends Widget_Base {
 		);
 
 		$this->add_control(
-			'page_id',
+			'exad_facebook_page_id',
 			[
 				'label' => esc_html__('Page ID', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => '228776804732213',
 				'label_block' => true,
-				'description' => '<a href="https://developers.facebook.com/apps/" target="_blank">Get Page ID</a>',
+				'description' => '<a href="https://lookup-id.com/" target="_blank">Find Page ID</a>',
 			]
 		);
 
 		$this->add_control(
-			'access_token',
+			'exad_facebook_access_token',
 			[
 				'label' => esc_html__('Access Token', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
@@ -71,15 +71,15 @@ class Facebook_Feed extends Widget_Base {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'_section_facebook_settings',
+			'exad_facebook_settings',
 			[
-				'label' => __('Facebook Feed Settings', 'exclusive-addons-elementor'),
+				'label' => __('Settings', 'exclusive-addons-elementor'),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 
 		$this->add_control(
-			'sort_by',
+			'exad_facebook_sort_by',
 			[
 				'label' => __( 'Sort By', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
@@ -140,17 +140,6 @@ class Facebook_Feed extends Widget_Base {
 			'show_feature_image',
 			[
 				'label' => __('Show Feature Image', 'exclusive-addons-elementor'),
-				'type' => Controls_Manager::SWITCHER,
-				'return_value' => 'yes',
-				'default' => 'no',
-				'style_transfer' => true,
-			]
-		);
-
-		$this->add_control(
-			'show_facebook_logo',
-			[
-				'label' => __('Show Facebook Logo', 'exclusive-addons-elementor'),
 				'type' => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'default' => 'yes',
@@ -631,55 +620,6 @@ class Facebook_Feed extends Widget_Base {
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-author' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-				],
-			]
-		);
-
-		$this->add_control(
-			'facebook_logo_heading',
-			[
-				'label' => __( 'Facebook Icon', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' => 'before'
-			]
-		);
-
-		$this->add_control(
-			'facebook_icon_note',
-			[
-				'label' => false,
-				'type' => Controls_Manager::RAW_HTML,
-				'condition' => [
-					'show_facebook_logo' => ''
-				],
-				'raw' => __( 'Facebook Icon is hidden from <strong>Facebook Feed Settings</strong> section.', 'exclusive-addons-elementor' ),
-			]
-		);
-
-		$this->add_responsive_control(
-			'facebook_logo_icon_size',
-			[
-				'label' => __( 'Size', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'condition' => [
-					'show_facebook_logo' => 'yes'
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-facebook-feed-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'facebook_logo_icon_color',
-			[
-				'label' => __( 'Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'condition' => [
-					'show_facebook_logo' => 'yes'
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-facebook-feed-icon i' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1276,8 +1216,8 @@ class Facebook_Feed extends Widget_Base {
 	}
 
 	protected function facebook_feed_render( $id, $settings ) {
-		$page_id = trim($settings['page_id']);
-		$access_token = $settings['access_token'];
+		$page_id = trim($settings['exad_facebook_page_id']);
+		$access_token = $settings['exad_facebook_access_token'];
 		if ( empty( $page_id ) || empty( $access_token ) ) {
 			return;
 		}
@@ -1324,10 +1264,9 @@ class Facebook_Feed extends Widget_Base {
 			'page_id' 			=> $page_id,
 			'access_token' 		=> $access_token,
 			'remove_cash' 		=> $settings['remove_cash'],
-			'sort_by' 			=> $settings['sort_by'],
+			'exad_facebook_sort_by' => $settings['exad_facebook_sort_by'],
 			'post_limit' 		=> $settings['post_limit'],
 			'show_feature_image' => $settings['show_feature_image'],
-			'show_facebook_logo' => $settings['show_facebook_logo'],
 			'show_user_image' 	=> $settings['show_user_image'],
 			'show_name' 				=> $settings['show_name'],
 			'show_date' 				=> $settings['show_date'],
@@ -1337,7 +1276,7 @@ class Facebook_Feed extends Widget_Base {
 		];
 		$query_settings = json_encode($query_settings, true);
 
-		switch ($settings['sort_by']) {
+		switch ($settings['exad_facebook_sort_by']) {
 			case 'old-posts':
 				usort($facebook_feed_data['data'], function ($a,$b) {
 					if ( strtotime($a['created_time']) == strtotime($b['created_time']) ) return 0;
@@ -1394,20 +1333,10 @@ class Facebook_Feed extends Widget_Base {
 
 					<div class="exad-facebook-inner-wrapper">
 
-						<?php if ( $settings['show_facebook_logo'] == 'yes' ) : ?>
-							<div class="exad-facebook-feed-icon">
-								<i class="fa fa-facebook-square"></i>
-							</div>
-						<?php endif; ?>
-
 						<div class="exad-facebook-author">
 							<?php if ( $settings['show_user_image'] == 'yes' ) : ?>
 								<a href="<?php echo esc_url( $page_url ); ?>">
-									<img
-										src="<?php echo esc_url( $avatar_url ); ?>"
-										alt="<?php echo esc_attr( $item['from']['name'] ); ?>"
-										class="exad-facebook-avatar"
-									>
+									<img class="exad-facebook-avatar" src="<?php echo esc_url( $avatar_url ); ?>" alt="<?php echo esc_attr( $item['from']['name'] ); ?>" >
 								</a>
 							<?php endif; ?>
 
@@ -1449,7 +1378,7 @@ class Facebook_Feed extends Widget_Base {
 									<?php if ( $settings['show_likes'] == 'yes' ) : ?>
 										<div class="exad-facebook-likes">
 											<?php echo esc_html( $item['reactions']['summary']['total_count'] ); ?>
-											<i class="fa fa-thumbs-up"></i>
+											<i class="far fa-thumbs-up"></i>
 											<?php _e( 'Like', 'exclusive-addons-elementor' ); ?>
 										</div>
 									<?php endif; ?>
@@ -1457,7 +1386,7 @@ class Facebook_Feed extends Widget_Base {
 									<?php if ( $settings['show_comments'] == 'yes' ) : ?>
 										<div class="exad-facebook-comments">
 											<?php echo esc_html( $item['comments']['summary']['total_count'] ); ?>
-											<i class="fa fa-comment"></i>
+											<i class="far fa-comment"></i>
 											<?php _e( 'comment', 'exclusive-addons-elementor' ); ?>
 										</div>
 									<?php endif; ?>
