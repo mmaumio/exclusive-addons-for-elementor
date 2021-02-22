@@ -162,6 +162,13 @@ class Admin_Settings {
 								<span><?php _e( 'API Keys', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
+						<li class="exad-tab-btn">
+							<a href="#woosettings">
+								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/api-normal.svg'; ?>">
+								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/api-active.svg'; ?>">
+								<span><?php _e( 'Woocommerce Settings', 'exclusive-addons-elementor' ); ?></span>
+							</a>
+						</li>
 						<?php if ( !Base::$is_pro_active ) : ?>
 						<li class="exad-get-pro">
 							<a href="https://exclusiveaddons.com/pricing/" target="_blank">
@@ -177,6 +184,7 @@ class Admin_Settings {
                     <?php include_once EXAD_ADMIN . 'templates/extensions.php'; ?>
 					<?php include_once EXAD_ADMIN . 'templates/style-settings.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/api-keys.php'; ?>
+                    <?php include_once EXAD_ADMIN . 'templates/woo-settings.php'; ?>
 					<?php if ( !Base::$is_pro_active ) : ?>
 						<div class="exad-dashboard-popup-message">
 							<div class="exad-dashboard-popup-message-img">

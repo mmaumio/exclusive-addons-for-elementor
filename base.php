@@ -117,6 +117,8 @@ final class Base {
      */
     public function includes() {
         include_once EXAD_PATH . 'includes/helper-class.php';
+        include_once EXAD_PATH . 'includes/custom-metabox.php';
+        include_once EXAD_PATH . 'includes/exad-woo-shop.php';
         include_once EXAD_PATH . 'includes/addons-manager-class.php';
         include_once EXAD_PATH . 'includes/assets-manager-class.php';
         if( is_admin() ) {
