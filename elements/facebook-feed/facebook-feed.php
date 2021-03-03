@@ -125,6 +125,24 @@ class Facebook_Feed extends Widget_Base {
             ]
 		);
 
+		$this->add_responsive_control(
+			'exad_facebook_feed_column_gap',
+			[
+				'label' => __( 'Column Gap', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-facebook-feed-wrapper' => 'grid-gap: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->add_control(
 			'remove_cash',
 			[
@@ -137,7 +155,7 @@ class Facebook_Feed extends Widget_Base {
 		);
 
 		$this->add_control(
-			'show_feature_image',
+			'exad_facebook_show_feature_image',
 			[
 				'label' => __('Show Feature Image', 'exclusive-addons-elementor'),
 				'type' => Controls_Manager::SWITCHER,
@@ -318,7 +336,7 @@ class Facebook_Feed extends Widget_Base {
 				'prefix_class' => 'exad-facebook-user-',
 				'selectors_dictionary' => [
 					'left' => 'justify-content: flex-start',
-					'center' => 'justify-content: space-around',
+					'center' => 'justify-content: space-between',
 					'right' => 'justify-content: flex-end',
 				],
 				'toggle' => true,
@@ -502,7 +520,7 @@ class Facebook_Feed extends Widget_Base {
 				'label' => false,
 				'type' => Controls_Manager::RAW_HTML,
 				'condition' => [
-					'show_feature_image' => '',
+					'exad_facebook_show_feature_image' => '',
 				],
 				'raw' => __( 'Feature Image is hidden from <strong>Facebook Feed Settings</strong> section.', 'exclusive-addons-elementor' ),
 			]
@@ -521,7 +539,7 @@ class Facebook_Feed extends Widget_Base {
 					],
 				],
 				'condition' => [
-					'show_feature_image' => 'yes'
+					'exad_facebook_show_feature_image' => 'yes'
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-feed-feature-image img' => 'width: {{SIZE}}{{UNIT}}'
@@ -542,7 +560,7 @@ class Facebook_Feed extends Widget_Base {
 					],
 				],
 				'condition' => [
-					'show_feature_image' => 'yes'
+					'exad_facebook_show_feature_image' => 'yes'
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-feed-feature-image img' => 'height: {{SIZE}}{{UNIT}};'
@@ -557,7 +575,7 @@ class Facebook_Feed extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'condition' => [
-					'show_feature_image' => 'yes'
+					'exad_facebook_show_feature_image' => 'yes'
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-feed-feature-image' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
@@ -572,7 +590,7 @@ class Facebook_Feed extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'condition' => [
-					'show_feature_image' => 'yes'
+					'exad_facebook_show_feature_image' => 'yes'
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-feed-feature-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
@@ -585,7 +603,7 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'name' => 'feature_image_border',
 				'condition' => [
-					'show_feature_image' => 'yes'
+					'exad_facebook_show_feature_image' => 'yes'
 				],
 				'selector' => '{{WRAPPER}} .exad-facebook-feed-feature-image img',
 			]
@@ -596,7 +614,7 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'name' => 'feature_image_box_shadow',
 				'condition' => [
-					'show_feature_image' => 'yes'
+					'exad_facebook_show_feature_image' => 'yes'
 				],
 				'selector' => '{{WRAPPER}} .exad-facebook-feed-feature-image img'
 			]
@@ -1226,7 +1244,7 @@ class Facebook_Feed extends Widget_Base {
 			'exad_facebook_feed_wrapper',
 			[	
 				'id' => "exad-facebook-feed-wrapper",
-				'class' => "exad-facebook-feed-wrapper exad-row-wrapper exad-col-{$settings['exad_facebook_feed_column']}"
+				'class' => "exad-facebook-feed-wrapper exad-col-{$settings['exad_facebook_feed_column']}"
 			]
 		);
 
@@ -1266,7 +1284,7 @@ class Facebook_Feed extends Widget_Base {
 			'remove_cash' 		=> $settings['remove_cash'],
 			'exad_facebook_sort_by' => $settings['exad_facebook_sort_by'],
 			'post_limit' 		=> $settings['post_limit'],
-			'show_feature_image' => $settings['show_feature_image'],
+			'exad_facebook_show_feature_image' => $settings['exad_facebook_show_feature_image'],
 			'show_user_image' 	=> $settings['show_user_image'],
 			'show_name' 				=> $settings['show_name'],
 			'show_date' 				=> $settings['show_date'],
@@ -1323,7 +1341,7 @@ class Facebook_Feed extends Widget_Base {
 				?>
 				<div class="exad-facebook-feed-item exad-col">
 
-					<?php if ( $settings['show_feature_image'] == 'yes' && !empty( $item['full_picture'] ) ) : ?>
+					<?php if ( $settings['exad_facebook_show_feature_image'] == 'yes' && !empty( $item['full_picture'] ) ) : ?>
 						<div class="exad-facebook-feed-feature-image">
 							<a href="<?php echo esc_url( $item['permalink_url'] ); ?>" target="_blank">
 								<img src="<?php echo esc_url( $item['full_picture'] ); ?>" alt="<?php esc_url( $item['from']['name'] ); ?>">

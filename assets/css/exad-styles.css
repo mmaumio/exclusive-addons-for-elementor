@@ -1831,28 +1831,68 @@ ul.exad-call-to-action-buttons {
 
 /* Facebook Feed Css Starts */
 
-.exad-row-wrapper .exad-facebook-meta {
+.exad-facebook-feed-wrapper .exad-facebook-meta {
     display: flex;
     align-items: center;
 }
 
-.exad-row-wrapper .exad-facebook-author {
+.exad-facebook-feed-wrapper .exad-facebook-author {
     display: flex;
     align-items: center;
 }
 
-.exad-facebook-user {
+.exad-facebook-feed-wrapper .exad-facebook-user {
     margin-left: 15px;
 }
 
-.exad-facebook-author .exad-facebook-avatar {
+.exad-facebook-feed-wrapper .exad-facebook-author .exad-facebook-avatar {
     width: 50px;
     border-radius: 50%;
 }
 
-.exad-row-wrapper .exad-facebook-likes {
+.exad-facebook-feed-wrapper .exad-facebook-likes {
     margin-right: 15px;
 }
+
+.exad-facebook-feed-wrapper .exad-facebook-feed-item{
+    position: relative;
+}
+.exad-facebook-feed-wrapper .exad-facebook-feed-item .exad-facebook-feed-feature-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -o-object-fit: cover;
+}
+.exad-facebook-feed-wrapper{
+    display: grid;
+}
+.exad-facebook-feed-wrapper.exad-col-1{
+    grid-template-columns: repeat(1, 1fr);
+}
+.exad-facebook-feed-wrapper.exad-col-2{
+    grid-template-columns: repeat(2, 1fr);
+}
+.exad-facebook-feed-wrapper.exad-col-3{
+    grid-template-columns: repeat(3, 1fr);
+}
+.exad-facebook-feed-wrapper.exad-col-4{
+    grid-template-columns: repeat(4, 1fr);
+}
+.exad-facebook-feed-wrapper.exad-col-5{
+    grid-template-columns: repeat(5, 1fr);
+}
+.exad-facebook-feed-wrapper.exad-col-6{
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.exad-facebook-footer-wrapper{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Facebook Feed Css Ends */
+
 /* Flip Box Start */
 
 .exad-flip-box {
