@@ -26,6 +26,7 @@
 
 .exad-facebook-feed-wrapper .exad-facebook-feed-item{
     position: relative;
+    display: flex;
 }
 .exad-facebook-feed-wrapper .exad-facebook-feed-item .exad-facebook-feed-feature-image img{
     width: 100%;
@@ -59,6 +60,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+    left: 0;
 }
 
 /* Facebook Feed Css Ends */

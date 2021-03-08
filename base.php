@@ -242,6 +242,9 @@ final class Base {
                                         <div class="exad-facebook-likes">
                                             <?php echo esc_html( $item['reactions']['summary']['total_count'] ); ?>
                                             <i class="far fa-thumbs-up"></i>
+                                            <?php if( $settings['exad_facebook_show_likes_text'] == 'yes' ) { ?>
+												<?php _e( 'Like', 'exclusive-addons-elementor' ); ?>
+											<?php } ?>
                                         </div>
                                     <?php endif; ?>
 
@@ -249,6 +252,9 @@ final class Base {
                                         <div class="exad-facebook-comments">
                                             <?php echo esc_html( $item['comments']['summary']['total_count'] ); ?>
                                             <i class="far fa-comment"></i>
+                                            <?php if( $settings['exad_facebook_show_comment_text'] =='yes' ) { ?>
+												<?php _e( 'Comment', 'exclusive-addons-elementor' ); ?>
+											<?php } ?>
                                         </div>
                                     <?php endif; ?>
                                 </div>
