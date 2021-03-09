@@ -699,7 +699,7 @@ class Addons_Manager {
     public static function extensions_map_free() {
         return [
             'glass-effect'  => [
-                'title'  => __( 'Glass Effect', 'exclusive-addons-elementor' ),
+                'title'  => __( 'Glassmorphism Effect', 'exclusive-addons-elementor' ),
                 'class'  => '\Exclusive_Addons\Elementor\Extensions\GlassEffect',
                 'tags'   => 'free',
                 'demo_link' => 'https://exclusiveaddons.com/post-duplicator/',

@@ -17,9 +17,18 @@ class GlassEffect {
     public static function register_controls( $section ) {
 
         $section->add_control(
+			'exad_glassmorphism_heading',
+			[
+				'label' => __( 'Exclusive Glassmorphism Effect', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+        $section->add_control(
             'exad_enable_glass_effect',
             [
-				'label'        => __( 'Enable Glass Effect', 'exclusive-addons-elementor' ),
+				'label'        => __( 'Enable Glassmorphism', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'default'      => 'no',
                 'return_value' => 'yes',
