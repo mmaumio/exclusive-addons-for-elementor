@@ -1425,8 +1425,8 @@ class Facebook_Feed extends Widget_Base {
 			]
 		);
 
-		$ha_facebook_feed_cash = '_' . $id . '_facebook_cash';
-		$transient_key = $page_id . $ha_facebook_feed_cash;
+		$exad_facebook_feed_cash = '_' . $id . '_facebook_cash';
+		$transient_key = $page_id . $exad_facebook_feed_cash;
 		$facebook_feed_data = get_transient($transient_key);
 		$messages = [];
 

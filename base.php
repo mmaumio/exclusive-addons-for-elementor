@@ -125,8 +125,8 @@ final class Base {
             $settings = $_POST['query_settings'];
             $loaded_item = $_POST['loaded_item'];
 
-            $ha_facebook_feed_cash = '_' . $settings['widget_id'] . '_facebook_cash';
-            $transient_key = $settings['exad_facebook_page_id'] . $ha_facebook_feed_cash;
+            $exad_facebook_feed_cash = '_' . $settings['widget_id'] . '_facebook_cash';
+            $transient_key = $settings['exad_facebook_page_id'] . $exad_facebook_feed_cash;
             $facebook_feed_data = get_transient($transient_key);
 
             if ( false === $facebook_feed_data ) {
