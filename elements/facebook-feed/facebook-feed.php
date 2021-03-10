@@ -121,6 +121,17 @@ class Facebook_Feed extends Widget_Base {
 					'4' => esc_html__( '4', 'exclusive-addons-elementor' ),
 					'5' => esc_html__( '5', 'exclusive-addons-elementor' ),
 					'6' => esc_html__( '6', 'exclusive-addons-elementor' )
+				],
+				'selectors_dictionary' => [
+					'1' => 'grid-template-columns: repeat(1, 1fr);',
+					'2' => 'grid-template-columns: repeat(2, 1fr);',
+					'3' => 'grid-template-columns: repeat(3, 1fr);',
+					'4' => 'grid-template-columns: repeat(4, 1fr);',
+					'5' => 'grid-template-columns: repeat(5, 1fr);',
+					'6' => 'grid-template-columns: repeat(6, 1fr);',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-facebook-feed-wrapper' => '{{VALUE}};'
 				]
             ]
 		);
@@ -131,6 +142,10 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Column Gap', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
+				'default' => [
+					'unit' => 'px',
+					'size' => 15,
+				],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -313,34 +328,6 @@ class Facebook_Feed extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'alignment',
-			[
-				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-center',
-					],
-					'right' => [
-						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-right',
-					],
-				],
-				'default' => 'left',
-				'toggle' => false,
-				'prefix_class' => 'exad-facebook-',
-				'selectors' => [
-					'{{WRAPPER}} .elementor-widget-container' => 'text-align: {{VALUE}};'
-				]
-			]
-		);
-
 		$this->add_control(
 			'like_comment_position',
 			[
@@ -367,36 +354,10 @@ class Facebook_Feed extends Widget_Base {
 					'center' => 'justify-content: space-between',
 					'right' => 'justify-content: flex-end',
 				],
+				'default' => 'center',
 				'toggle' => true,
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-meta' => '{{VALUE}};'
-				]
-			]
-		);
-
-		$this->add_responsive_control(
-			'button_alignment',
-			[
-				'label' => __( 'Button Alignment', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-center',
-					],
-					'right' => [
-						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-right',
-					],
-				],
-				'default' => 'center',
-				'toggle' => false,
-				'selectors' => [
-					'{{WRAPPER}} .exad-facebook-load-more-wrapper' => 'text-align: {{VALUE}};'
 				]
 			]
 		);
@@ -444,17 +405,6 @@ class Facebook_Feed extends Widget_Base {
 			]
 		);
 
-		// $this->add_responsive_control(
-		// 	'item_spacing',
-		// 	[
-		// 		'label' => __( 'Space between Posts', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::SLIDER,
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-facebook-items' => 'grid-gap: {{SIZE}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
 		$this->add_control(
 			'exad_facebook_item_padding',
 			[
@@ -480,6 +430,22 @@ class Facebook_Feed extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'exad_facebook_item_border',
+				'fields_options'  => [
+                    'border' 	  => [
+                        'default' => 'solid'
+                    ],
+                    'width'  	  => [
+                        'default' 	 => [
+                            'top'    => '1',
+                            'right'  => '1',
+                            'bottom' => '1',
+                            'left'   => '1'
+                        ]
+                    ],
+                    'color' 	  => [
+                        'default' => '#e5e5e5'
+                    ]
+                ],
 				'selector' => '{{WRAPPER}} .exad-facebook-feed-wrapper .exad-facebook-feed-item',
 			]
 		);
@@ -490,6 +456,14 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '4',
+					'right' => '4',
+					'bottom' => '4',
+					'left' => '4',
+					'unit' => 'px',
+					'isLinked' => true,
+				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-feed-wrapper .exad-facebook-feed-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
@@ -503,35 +477,6 @@ class Facebook_Feed extends Widget_Base {
 				'selector' => '{{WRAPPER}} .exad-facebook-feed-wrapper .exad-facebook-feed-item'
 			]
 		);
-
-		// $this->add_control(
-		// 	'item_background_overlay',
-		// 	[
-		// 		'label' => __( 'Background Overlay', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::COLOR,
-		// 		'condition' => [
-		// 			'item_background_background' => 'classic'
-		// 		],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-facebook-item:before' => 'background-color: {{VALUE}}',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'content_glassy_effect',
-		// 	[
-		// 		'label' => __('Content Glassy Effect', 'exclusive-addons-elementor'),
-		// 		'type' => Controls_Manager::SWITCHER,
-		// 		'return_value' => 'yes',
-		// 		'default' => 'no',
-		// 		'condition' => [
-		// 			'item_background_background' => 'classic'
-		// 		],
-		// 		'prefix_class' => 'exad-facebook-glassy-',
-		// 		'style_transfer' => true,
-		// 	]
-		// );
 
 		$this->end_controls_section();
 
@@ -556,27 +501,6 @@ class Facebook_Feed extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'feature_image_width',
-			[
-				'label' => __( 'Image Width', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%'],
-				'range' => [
-					'px' => [
-						'min' => 10,
-						'max' => 400,
-					],
-				],
-				'condition' => [
-					'exad_facebook_show_feature_image' => 'yes'
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-facebook-feed-feature-image img' => 'width: {{SIZE}}{{UNIT}}'
-				],
-			]
-		);
-
-		$this->add_responsive_control(
 			'feature_image_height',
 			[
 				'label' => __( 'Image Height', 'exclusive-addons-elementor' ),
@@ -587,6 +511,10 @@ class Facebook_Feed extends Widget_Base {
 						'min' => 10,
 						'max' => 400,
 					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 220,
 				],
 				'condition' => [
 					'exad_facebook_show_feature_image' => 'yes'
@@ -618,6 +546,14 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '4',
+					'right' => '4',
+					'bottom' => '0',
+					'left' => '0',
+					'unit' => 'px',
+					'isLinked' => true,
+				],
 				'condition' => [
 					'exad_facebook_show_feature_image' => 'yes'
 				],
@@ -665,6 +601,14 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'User Info Spacing', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '20',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20',
+					'unit' => 'px',
+					'isLinked' => true,
+				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-author' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
@@ -713,6 +657,10 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Spacing', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
+				'default' => [
+					'unit' => 'px',
+					'size' => 15,
+				],
 				'condition' => [
 					'show_user_image' => 'yes'
 				],
@@ -785,9 +733,31 @@ class Facebook_Feed extends Widget_Base {
 				'name' => 'name_typography',
 				'label' => __( 'Name Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-facebook-author-name',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'condition' => [
 					'show_name' => 'yes'
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_facebook_name__bottom_spacing',
+			[
+				'label' => __( 'Bottom Spacing', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 0,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-facebook-author-name' => 'margin-bottom: {{SIZE}}{{UNIT}};'
 				],
 			]
 		);
@@ -903,11 +873,47 @@ class Facebook_Feed extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
+			'exad_facebook_content_alignment',
+			[
+				'label' => __( 'Content Alignment', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-center',
+					],
+					'right' => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-right',
+					],
+				],
+				'default' => 'left',
+				'toggle' => false,
+				'prefix_class' => 'exad-facebook-',
+				'selectors' => [
+					'{{WRAPPER}} .exad-facebook-content' => 'text-align: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
 			'content_padding',
 			[
 				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '0',
+					'right' => '20',
+					'bottom' => '0',
+					'left' => '20',
+					'unit' => 'px',
+					'isLinked' => false,
+				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
@@ -928,7 +934,18 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'label' => __( 'Bottom Spacing', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => ['px', '%'],
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 200,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 90,
+				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-content p' => 'margin-bottom: {{SIZE}}{{UNIT}};'
 				],
@@ -941,7 +958,6 @@ class Facebook_Feed extends Widget_Base {
 				'name' => 'description_typography',
 				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-facebook-content p',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -1034,6 +1050,14 @@ class Facebook_Feed extends Widget_Base {
                 'label' => __( 'Padding', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '20',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20',
+					'unit' => 'px',
+					'isLinked' => false,
+				],
                 'selectors' => [
                     '{{WRAPPER}} .exad-facebook-footer' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
@@ -1044,6 +1068,22 @@ class Facebook_Feed extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'footer_meta_border',
+				'fields_options'  => [
+                    'border' 	  => [
+                        'default' => 'solid'
+                    ],
+                    'width'  	  => [
+                        'default' 	 => [
+                            'top'    => '1',
+                            'right'  => '0',
+                            'bottom' => '0',
+                            'left'   => '0'
+                        ]
+                    ],
+                    'color' 	  => [
+                        'default' => '#e5e5e5'
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .exad-facebook-footer',
             ]
         );
@@ -1147,6 +1187,36 @@ class Facebook_Feed extends Widget_Base {
 					'load_more' => ''
 				],
 				'raw' => __( 'Button is hidden from <strong>Facebook Feed Settings</strong> section.', 'exclusive-addons-elementor' ),
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_alignment',
+			[
+				'label' => __( 'Button Alignment', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-center',
+					],
+					'right' => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-right',
+					],
+				],
+				'default' => 'center',
+				'toggle' => false,
+				'condition' => [
+					'load_more' => 'yes'
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-facebook-load-more-wrapper' => 'text-align: {{VALUE}};'
+				]
 			]
 		);
 

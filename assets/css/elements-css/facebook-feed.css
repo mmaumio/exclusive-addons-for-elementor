@@ -11,10 +11,6 @@
     align-items: center;
 }
 
-.exad-facebook-feed-wrapper .exad-facebook-user {
-    margin-left: 15px;
-}
-
 .exad-facebook-feed-wrapper .exad-facebook-author .exad-facebook-avatar {
     width: 50px;
     border-radius: 50%;
@@ -37,30 +33,16 @@
 .exad-facebook-feed-wrapper{
     display: grid;
 }
-.exad-facebook-feed-wrapper.exad-col-1{
-    grid-template-columns: repeat(1, 1fr);
-}
-.exad-facebook-feed-wrapper.exad-col-2{
-    grid-template-columns: repeat(2, 1fr);
-}
-.exad-facebook-feed-wrapper.exad-col-3{
-    grid-template-columns: repeat(3, 1fr);
-}
-.exad-facebook-feed-wrapper.exad-col-4{
-    grid-template-columns: repeat(4, 1fr);
-}
-.exad-facebook-feed-wrapper.exad-col-5{
-    grid-template-columns: repeat(5, 1fr);
-}
-.exad-facebook-feed-wrapper.exad-col-6{
-    grid-template-columns: repeat(6, 1fr);
-}
 
 .exad-facebook-footer-wrapper{
     position: absolute;
     bottom: 0;
     width: 100%;
     left: 0;
+}
+
+.exad-facebook-author-name{
+    display: block;
 }
 
 /* Facebook Feed Css Ends */
